@@ -131,7 +131,7 @@ footer {
     height: 100vh;
     min-width: 120px;
     padding: 2rem 1.5rem 2rem 1.5rem;
-    background: none;
+    background: none !important;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -312,4 +312,52 @@ footer {
         max-width: 80px;
         max-height: 80px;
     }
+}
+
+.gallery-thumb-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.delete-thumb {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: #FFE5FF;
+    color: #341D34;
+    border: 1.5px solid #6986E8;
+    font-size: 1.1rem;
+    padding: 0.1em 0.5em;
+    cursor: pointer;
+    border-radius: 0;
+    z-index: 3;
+    opacity: 0.85;
+    transition: background 0.2s, color 0.2s;
+}
+
+.delete-thumb:hover, .delete-thumb:focus {
+    background: #6986E8;
+    color: #fff;
+    outline: none;
+}
+
+/* Remove all border-radius for a sharp look */
+.vertical-nav a,
+.upload-section,
+.collage,
+.gallery-thumb,
+.about-info,
+.about-project,
+.literature,
+.delete-thumb {
+    border-radius: 0 !important;
+}
+
+/* Remove border-radius from any other elements */
+#pixel-art,
+.gallery-thumb-wrapper,
+.upload-input,
+.upload-label,
+.literature-placeholder {
+    border-radius: 0 !important;
 } 
