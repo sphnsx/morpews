@@ -141,14 +141,15 @@ footer {
     min-width: 140px;
     width: 140px;
     padding: 2rem 0 2rem 0;
-    background: none !important;
+    background: #fff !important;
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
     z-index: 2;
     align-items: center;
-    border-right: 2px solid #6986E8;
+    border-right: 1.5px solid #E7FF6E;
     box-sizing: border-box;
+    box-shadow: 2px 0 12px 0 rgba(52,29,52,0.03);
 }
 
 .vertical-nav a {
