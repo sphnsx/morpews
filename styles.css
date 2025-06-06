@@ -125,35 +125,74 @@ footer {
 }
 
 .vertical-nav {
-    position: relative;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
-    min-width: 140px;
+    min-width: 120px;
     padding: 2rem 1.5rem 2rem 1.5rem;
     background: none;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
     z-index: 2;
     align-items: flex-start;
     border-right: 1.5px solid #FFE5FF;
 }
 
+.vertical-nav a {
+    text-decoration: none;
+    color: #341D34;
+    font-size: 1.2rem;
+    text-transform: lowercase;
+    letter-spacing: 0.03em;
+    font-family: 'Fira Mono', monospace;
+    transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+    padding: 0.4em 1.2em;
+    border-radius: 0;
+    background: none;
+    border: none;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.vertical-nav a:hover, .vertical-nav a:focus {
+    color: #fff;
+    background: #6986E8;
+    border: none;
+    box-shadow: 0 4px 16px rgba(105,134,232,0.13);
+}
+
+.pixel-main, #pixel-art {
+    width: 100vw !important;
+    height: 100vh !important;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: #FFE5FF;
+}
+
 .gallery-content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex: 1;
     align-items: flex-start;
     padding: 2rem 2rem 2rem 0;
     gap: 2.5rem;
     width: 100%;
+    margin-left: 180px;
 }
 
 .upload-section {
     min-width: 200px;
     max-width: 260px;
-    margin-bottom: 0;
+    margin-bottom: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -257,6 +296,7 @@ footer {
         gap: 1rem;
     }
     .gallery-content {
+        margin-left: 0;
         padding: 1.5rem 0.5rem;
     }
     .literature {
