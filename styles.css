@@ -126,8 +126,8 @@ footer {
 
 .site-logo {
     display: block;
-    margin: 2rem auto 2rem auto;
-    max-width: 120px;
+    margin: 1rem auto 1rem auto;
+    max-width: 48px;
     height: auto;
 }
 
@@ -376,4 +376,231 @@ footer {
 .upload-label,
 .literature-placeholder {
     border-radius: 0 !important;
+}
+
+.door-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #FFE5FF;
+    position: relative;
+}
+
+.gallery-door {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    transition: box-shadow 0.2s, border 0.2s;
+}
+
+.door-window {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 260px;
+    background: #E7FF6E;
+    border: 4px solid #6986E8;
+    box-shadow: 0 4px 32px rgba(52,29,52,0.10);
+    position: relative;
+}
+
+.door-frame {
+    width: 120px;
+    height: 180px;
+    background: #fff;
+    border: 3px solid #6986E8;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.gallery-door:hover .door-window, .gallery-door:focus .door-window {
+    border-color: #341D34;
+    box-shadow: 0 8px 40px rgba(52,29,52,0.18);
+}
+
+.gallery-wall-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    background: #fff;
+    padding: 2rem 0 6rem 0;
+    margin-left: 180px;
+}
+
+.gallery-wall-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.new-artwork-btn {
+    font-family: 'Fira Mono', monospace;
+    font-size: 1.1rem;
+    color: #341D34;
+    background: #E7FF6E;
+    border: 2px solid #6986E8;
+    padding: 0.4em 1.2em;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.new-artwork-btn:hover, .new-artwork-btn:focus {
+    background: #6986E8;
+    color: #fff;
+    border: 2px solid #E7FF6E;
+}
+
+.artwork-title-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.artwork-title {
+    font-family: 'Fira Mono', monospace;
+    font-size: 1.3rem;
+    color: #341D34;
+    text-transform: lowercase;
+    letter-spacing: 0.03em;
+}
+
+.edit-artwork-title {
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+    color: #6986E8;
+    cursor: pointer;
+    padding: 0.1em 0.4em;
+    border-radius: 0;
+    transition: color 0.2s;
+}
+
+.edit-artwork-title:hover, .edit-artwork-title:focus {
+    color: #E7FF6E;
+}
+
+.gallery-wall-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.arrow-btn {
+    font-size: 2.2rem;
+    background: none;
+    border: none;
+    color: #6986E8;
+    cursor: pointer;
+    padding: 0.1em 0.4em;
+    border-radius: 0;
+    transition: color 0.2s;
+    user-select: none;
+}
+
+.arrow-btn:hover, .arrow-btn:focus {
+    color: #E7FF6E;
+}
+
+.gallery-wall {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 320px;
+    background: #fff;
+    width: 60vw;
+    max-width: 900px;
+    min-width: 320px;
+}
+
+.gallery-thumb-wrapper {
+    position: relative;
+    display: inline-block;
+    box-shadow: 0 4px 24px rgba(52,29,52,0.10);
+    background: #fff;
+}
+
+.gallery-thumb {
+    max-width: 320px;
+    max-height: 320px;
+    border-radius: 0;
+    border: 2px solid #6986E8;
+    object-fit: contain;
+    background: #fff;
+}
+
+.delete-thumb {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: #FFE5FF;
+    color: #341D34;
+    border: 2px solid #6986E8;
+    font-size: 1.1rem;
+    padding: 0.1em 0.5em;
+    cursor: pointer;
+    border-radius: 0;
+    z-index: 3;
+    opacity: 0.85;
+    transition: background 0.2s, color 0.2s;
+}
+
+.delete-thumb:hover, .delete-thumb:focus {
+    background: #6986E8;
+    color: #fff;
+    outline: none;
+}
+
+.upload-section {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+.upload-label {
+    font-family: 'Fira Mono', monospace;
+    font-size: 1.1rem;
+    color: #6986E8;
+    text-transform: lowercase;
+    margin-bottom: 0.2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.upload-input {
+    font-size: 1rem;
+    color: #341D34;
+    background: #fff;
+    border: 2px solid #6986E8;
+    border-radius: 0;
+    padding: 0.3em 0.7em;
+    outline: none;
+    margin-bottom: 0.2rem;
 } 

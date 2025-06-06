@@ -13,19 +13,24 @@
             <a href="gallery.html">gallery</a>
             <a href="about.html">about</a>
         </nav>
-        <div class="gallery-content">
+        <main class="gallery-wall-main">
+            <div class="gallery-wall-header">
+                <button class="new-artwork-btn">new artwork</button>
+                <div class="artwork-title-container">
+                    <span class="artwork-title"></span>
+                    <button class="edit-artwork-title" title="edit artwork name">✎</button>
+                </div>
+            </div>
+            <div class="gallery-wall-nav">
+                <button class="arrow-btn left-arrow" aria-label="previous artwork">&#8592;</button>
+                <div class="gallery-wall"></div>
+                <button class="arrow-btn right-arrow" aria-label="next artwork">&#8594;</button>
+            </div>
             <section class="upload-section">
                 <label for="file-upload" class="upload-label">upload images</label>
                 <input type="file" id="file-upload" class="upload-input" accept="image/*" multiple>
-                <div class="upload-options">
-                    <span class="option">from local files</span>
-                    <!-- future: add cloud, drag-and-drop, etc. -->
-                </div>
             </section>
-            <section class="collage">
-                <div class="gallery-placeholder">gallery will appear here</div>
-            </section>
-        </div>
+        </main>
     </div>
     <section class="literature">
         <h2>literature</h2>
