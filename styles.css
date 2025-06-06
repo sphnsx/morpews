@@ -595,4 +595,30 @@ footer {
     padding: 0.3em 0.7em;
     outline: none;
     margin-bottom: 0.2rem;
+}
+
+.pixel-main, .door-main, .gallery-wall-main {
+    position: relative;
+    background-color: #fff;
+    /* Subtle repeating hallway pattern using SVG */
+    background-image: url('data:image/svg+xml;utf8,<svg width="120" height="240" viewBox="0 0 120 240" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="240" fill="white"/><rect x="10" y="0" width="100" height="240" rx="30" fill="none" stroke="%23cccccc" stroke-width="2"/><rect x="30" y="0" width="60" height="240" rx="20" fill="none" stroke="%23e0e0e0" stroke-width="1.5"/><rect x="50" y="0" width="20" height="240" rx="10" fill="none" stroke="%23f0f0f0" stroke-width="1"/></svg>');
+    background-repeat: repeat;
+    background-size: 120px 240px;
+    background-position: center;
+}
+
+/* Soft light/shadow overlay for depth */
+.pixel-main::before, .door-main::before, .gallery-wall-main::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.10) 100%);
+}
+
+/* Ensure content is above overlays */
+.pixel-main > *, .door-main > *, .gallery-wall-main > * {
+    position: relative;
+    z-index: 1;
 } 
