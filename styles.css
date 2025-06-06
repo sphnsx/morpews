@@ -11,9 +11,15 @@ html, body {
     margin: 0;
     padding: 0;
     background: #fff;
+    box-sizing: border-box;
 }
 
 body {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     color: #341D34;
@@ -70,11 +76,17 @@ header h1 {
 }
 
 .literature {
+    width: 100vw;
+    max-width: 100vw;
+    margin: 0 auto;
     background: #FFE5FF;
-    border-left: 4px solid #6986E8;
-    padding: 1.5rem 1rem;
-    margin-bottom: 2rem;
-    border-radius: 0.5rem;
+    border-top: 2px solid #6986E8;
+    padding: 2rem 2rem 2.5rem 2rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+    box-shadow: 0 -2px 16px rgba(52,29,52,0.07);
 }
 
 .literature h2 {
@@ -124,6 +136,7 @@ footer {
     background: #fff;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .site-logo {
@@ -131,6 +144,8 @@ footer {
     margin: 1rem auto 1rem auto;
     max-width: 48px;
     height: auto;
+    z-index: 3;
+    position: relative;
 }
 
 .vertical-nav {
@@ -179,19 +194,22 @@ footer {
     border: 2px solid #E7FF6E;
 }
 
+/* Homepage pixel art background */
 .pixel-main, #pixel-art {
     width: 100vw !important;
     height: 100vh !important;
     min-height: 100vh;
     min-width: 100vw;
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 0;
     border-radius: 0;
     box-shadow: none;
-    background: #FFE5FF;
+    background: transparent;
+    margin: 0;
+    padding: 0;
 }
 
 .gallery-content {
@@ -258,20 +276,6 @@ footer {
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
     background: #E7FF6E;
-}
-
-.literature {
-    width: 100vw;
-    max-width: 100vw;
-    margin: 0 auto;
-    background: #FFE5FF;
-    border-top: 2px solid #6986E8;
-    padding: 2rem 2rem 2.5rem 2rem;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    z-index: 10;
-    box-shadow: 0 -2px 16px rgba(52,29,52,0.07);
 }
 
 .literature h2 {
@@ -393,8 +397,9 @@ footer {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #FFE5FF;
+    background: none;
     position: relative;
+    z-index: 1;
 }
 
 .gallery-door {
@@ -555,28 +560,6 @@ footer {
     border: 2px solid #6986E8;
     object-fit: contain;
     background: #fff;
-}
-
-.delete-thumb {
-    position: absolute;
-    top: 4px;
-    right: 4px;
-    background: #FFE5FF;
-    color: #341D34;
-    border: 2px solid #6986E8;
-    font-size: 1.1rem;
-    padding: 0.1em 0.5em;
-    cursor: pointer;
-    border-radius: 0;
-    z-index: 3;
-    opacity: 0.85;
-    transition: background 0.2s, color 0.2s;
-}
-
-.delete-thumb:hover, .delete-thumb:focus {
-    background: #6986E8;
-    color: #fff;
-    outline: none;
 }
 
 .upload-section {
