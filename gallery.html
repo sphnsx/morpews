@@ -7,21 +7,32 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html">home</a>
-        <a href="gallery.html">gallery</a>
-        <a href="about.html">about</a>
-    </nav>
-    <main>
-        <section class="collage">
-            <div class="gallery-placeholder">gallery will appear here</div>
-        </section>
-        <section class="literature">
-            <h2>literature</h2>
-            <div class="literature-placeholder">
-                <p>Here, a short story or poem inspired by the images will appear. This section may use uppercase and lowercase as needed for literary effect.</p>
-            </div>
-        </section>
-    </main>
+    <div class="layout">
+        <nav class="vertical-nav">
+            <a href="index.html">home</a>
+            <a href="gallery.html">gallery</a>
+            <a href="about.html">about</a>
+        </nav>
+        <div class="gallery-content">
+            <section class="upload-section">
+                <label for="file-upload" class="upload-label">upload images</label>
+                <input type="file" id="file-upload" class="upload-input" accept="image/*" multiple>
+                <div class="upload-options">
+                    <span class="option">from local files</span>
+                    <!-- future: add cloud, drag-and-drop, etc. -->
+                </div>
+            </section>
+            <section class="collage">
+                <div class="gallery-placeholder">gallery will appear here</div>
+            </section>
+        </div>
+    </div>
+    <section class="literature">
+        <h2>literature</h2>
+        <div class="literature-placeholder">
+            <p>Here, a short story or poem inspired by the images will appear. This section may use uppercase and lowercase as needed for literary effect. (max 280 words)</p>
+        </div>
+    </section>
+    <script src="gallery.js"></script>
 </body>
 </html> 
