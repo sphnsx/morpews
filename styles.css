@@ -6,17 +6,17 @@
     box-sizing: border-box;
 }
 
-body, html {
+html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background: #fff;
 }
 
 body {
     font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     color: #341D34;
-    background: #fff;
     padding: 2rem;
 }
 
@@ -121,7 +121,9 @@ footer {
     min-height: 100vh;
     width: 100vw;
     position: relative;
-    background: #FFE5FF;
+    background: #fff;
+    margin: 0;
+    padding: 0;
 }
 
 .site-logo {
@@ -136,15 +138,17 @@ footer {
     top: 0;
     left: 0;
     height: 100vh;
-    min-width: 120px;
-    padding: 2rem 1.5rem 2rem 1.5rem;
+    min-width: 140px;
+    width: 140px;
+    padding: 2rem 0 2rem 0;
     background: none !important;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2.5rem;
     z-index: 2;
-    align-items: flex-start;
+    align-items: center;
     border-right: 2px solid #6986E8;
+    box-sizing: border-box;
 }
 
 .vertical-nav a {
@@ -154,20 +158,24 @@ footer {
     text-transform: lowercase;
     letter-spacing: 0.03em;
     font-family: 'Fira Mono', monospace;
-    transition: color 0.2s, background 0.2s, box-shadow 0.2s;
-    padding: 0.4em 1.2em;
+    transition: color 0.2s, background 0.2s, border 0.2s;
+    padding: 0.7em 0;
     border-radius: 0;
     background: #E7FF6E;
     border: 2px solid #6986E8;
-    margin-bottom: 0.5rem;
-    display: inline-block;
+    width: 120px;
+    min-width: 120px;
+    max-width: 120px;
+    text-align: center;
+    margin-bottom: 0;
+    display: block;
+    box-sizing: border-box;
 }
 
 .vertical-nav a:hover, .vertical-nav a:focus {
     color: #fff;
     background: #6986E8;
     border: 2px solid #E7FF6E;
-    box-shadow: 0 4px 16px rgba(105,134,232,0.13);
 }
 
 .pixel-main, #pixel-art {
@@ -435,7 +443,7 @@ footer {
     min-height: 100vh;
     background: #fff;
     padding: 2rem 0 6rem 0;
-    margin-left: 180px;
+    margin-left: 140px;
 }
 
 .gallery-wall-header {
