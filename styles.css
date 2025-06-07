@@ -12,6 +12,8 @@ html, body {
     padding: 0;
     background: #fff;
     box-sizing: border-box;
+    font-family: 'Fira Mono', monospace;
+    color: #341D34;
 }
 
 body {
@@ -20,9 +22,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    color: #341D34;
     padding: 2rem;
 }
 
@@ -129,14 +129,7 @@ footer {
 
 .layout {
     display: flex;
-    flex-direction: row;
-    min-height: 100vh;
-    width: 100vw;
-    position: relative;
-    background: #fff;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    height: 100vh;
 }
 
 .site-logo {
@@ -144,45 +137,83 @@ footer {
 }
 
 .vertical-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    min-width: 140px;
-    width: 140px;
-    padding: 2rem 0 2rem 0;
-    background: #fff !important;
+    width: 80px;
+    background: #fff;
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
-    z-index: 2;
     align-items: center;
-    border-right: 1.5px solid #E7FF6E;
-    box-sizing: border-box;
-    box-shadow: 2px 0 12px 0 rgba(52,29,52,0.03);
+    padding-top: 2rem;
+    gap: 2rem;
+    border-right: 2px solid #341D34;
+    min-width: 80px;
 }
 
-.vertical-nav a, .new-artwork-btn, .edit-artwork-title, .arrow-btn, .upload-label, .back-btn {
-    width: 140px;
-    min-width: 140px;
-    max-width: 140px;
-    height: 56px;
-    min-height: 56px;
-    max-height: 56px;
-    font-size: 1.6rem;
-    line-height: 1.2;
-    padding: 0;
-    box-sizing: border-box;
+.vertical-nav a {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: #fff;
+    border: 2px solid #6986E8;
+    color: #341D34;
+    font-family: 'Fira Mono', monospace;
+    font-size: 1.1rem;
+    text-decoration: none;
+    text-transform: lowercase;
+    border-radius: 0;
+    transition: none;
+    box-sizing: border-box;
+    margin: 0;
 }
 
-.vertical-nav a:hover, .new-artwork-btn:hover, .edit-artwork-title:hover, .arrow-btn:hover, .upload-label:hover,
-.vertical-nav a:focus, .new-artwork-btn:focus, .edit-artwork-title:focus, .arrow-btn:focus, .upload-label:focus {
-    color: #fff;
-    background: #6986E8;
-    border: 2px solid #E7FF6E;
+.vertical-nav a:active {
+    background: #E7FF6E;
+    color: #341D34;
+}
+
+.gallery-main-artworks {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    width: 100%;
+    height: 100vh;
+}
+
+.artwork-box {
+    background: #fff;
+    border: 2px solid #222;
+    width: 340px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.artwork-box .colour-row {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.artwork-box .colour-square {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #341D34;
+    box-sizing: border-box;
+}
+
+.artwork-box .artwork-title {
+    font-family: 'Fira Mono', monospace;
+    font-size: 1.3rem;
+    color: #341D34;
+    text-align: center;
+    margin-top: 0.2rem;
 }
 
 .pixel-main {
@@ -749,4 +780,124 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.gallery-subpage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    background: #fff;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.back-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: #fff;
+    border: 2px solid #6986E8;
+    color: #341D34;
+    font-family: 'Fira Mono', monospace;
+    font-size: 1.1rem;
+    text-decoration: none;
+    text-transform: lowercase;
+    border-radius: 0;
+    transition: none;
+    box-sizing: border-box;
+    margin-bottom: 2rem;
+}
+
+.back-btn:active {
+    background: #E7FF6E;
+    color: #341D34;
+}
+
+.subpage-content {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+}
+
+.refraction-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.refraction-note {
+    font-family: 'Fira Mono', monospace;
+    font-size: 1rem;
+    color: #341D34;
+    border-left: 2px solid #341D34;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.artwork-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.artwork-display {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.artwork-display .artwork-box {
+    width: 340px;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.about-page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    background: #fff;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.citation-section {
+    margin-bottom: 2rem;
+    border-left: 2px solid #341D34;
+    padding-left: 1rem;
+}
+
+.citation-number {
+    font-family: 'Fira Mono', monospace;
+    font-size: 1.2rem;
+    color: #341D34;
+    margin-bottom: 0.5rem;
+}
+
+.citation-title {
+    font-family: 'Fira Mono', monospace;
+    font-size: 1.1rem;
+    color: #341D34;
+    margin-bottom: 0.5rem;
+    text-transform: lowercase;
+}
+
+.citation-text {
+    font-family: 'Fira Mono', monospace;
+    font-size: 0.9rem;
+    color: #341D34;
+    line-height: 1.6;
 } 
