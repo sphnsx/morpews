@@ -1211,4 +1211,71 @@ footer {
     border: 3px solid #341D34;
     background: #fff;
     color: #341D34;
+}
+
+/* Floorplan background and overlay styles */
+.floorplan-bg {
+    background: #000 url('images/floorplan.png') no-repeat center center fixed;
+    background-size: contain;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.floorplan-overlay {
+    position: absolute;
+    top: 4vh;
+    left: 0;
+    width: 100vw;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+}
+
+.floorplan-title-block, .floorplan-intro-block {
+    position: relative;
+    margin-bottom: 2.5vh;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.highlight-block {
+    width: 100%;
+    height: 2.2em;
+    background: #E7FF6E;
+    border-radius: 0.2em;
+    position: absolute;
+    top: 0.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.floorplan-title {
+    color: #341D34;
+    font-family: 'Fira Mono', monospace;
+    font-size: 3.2rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin: 0 0 0.2em 0;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.floorplan-intro {
+    color: #341D34;
+    font-family: 'Fira Mono', monospace;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin: 0.2em 0 0 0;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 600px;
 } 
