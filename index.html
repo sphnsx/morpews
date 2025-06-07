@@ -5,32 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>morpews</title>
     <link rel="stylesheet" href="styles.css">
-    <script>
-      // Randomly select a logo for favicon and page
-      const logos = [
-        'images/logo 1.png',
-        'images/logo 2.png',
-        'images/logo 3.png',
-        'images/logo 4.png',
-        'images/logo 5.png',
-        'images/logo 6.png'
-      ];
-      const randomLogo = logos[Math.floor(Math.random() * logos.length)];
-      document.addEventListener('DOMContentLoaded', function() {
-        // Add logo to page
-        const logoImg = document.createElement('img');
-        logoImg.src = randomLogo;
-        logoImg.alt = 'morpews logo';
-        logoImg.className = 'site-logo';
-        document.body.querySelector('.layout').prepend(logoImg);
-        // Set favicon
-        let link = document.createElement('link');
-        link.rel = 'icon';
-        link.type = 'image/png';
-        link.href = randomLogo;
-        document.head.appendChild(link);
-      });
-    </script>
 </head>
 <body>
     <div class="layout">
@@ -39,14 +13,10 @@
             <a href="gallery.html">gallery</a>
             <a href="about.html">about</a>
         </nav>
-        <main class="door-main">
-            <a href="gallery.html" class="gallery-door" aria-label="enter gallery">
-                <div class="door-window">
-                    <!-- Minimal door/window graphic using brand colours -->
-                    <div class="door-frame"></div>
-                </div>
-            </a>
+        <main class="pixel-main">
+            <div id="pixel-art-blocks"></div>
         </main>
     </div>
+    <script src="pixel-art-blocks.js"></script>
 </body>
 </html> 

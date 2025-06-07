@@ -140,12 +140,7 @@ footer {
 }
 
 .site-logo {
-    display: block;
-    margin: 1rem auto 1rem auto;
-    max-width: 48px;
-    height: auto;
-    z-index: 3;
-    position: relative;
+    display: none !important;
 }
 
 .vertical-nav {
@@ -167,7 +162,7 @@ footer {
     box-shadow: 2px 0 12px 0 rgba(52,29,52,0.03);
 }
 
-.vertical-nav a {
+.vertical-nav a, .new-artwork-btn, .edit-artwork-title, .arrow-btn, .upload-label {
     text-decoration: none;
     color: #341D34;
     font-size: 1.2rem;
@@ -186,22 +181,38 @@ footer {
     margin-bottom: 0;
     display: block;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
-.vertical-nav a:hover, .vertical-nav a:focus {
+.vertical-nav a:hover, .new-artwork-btn:hover, .edit-artwork-title:hover, .arrow-btn:hover, .upload-label:hover,
+.vertical-nav a:focus, .new-artwork-btn:focus, .edit-artwork-title:focus, .arrow-btn:focus, .upload-label:focus {
     color: #fff;
     background: #6986E8;
     border: 2px solid #E7FF6E;
 }
 
-/* Homepage pixel art background */
-.pixel-main, #pixel-art {
+.pixel-main {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+}
+
+#pixel-art {
     width: 100vw !important;
     height: 100vh !important;
     min-height: 100vh;
     min-width: 100vw;
     display: block;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 0;
@@ -299,9 +310,12 @@ footer {
     margin-bottom: 2.5rem;
     background: #E7FF6E;
     border: 2px solid #6986E8;
-    box-shadow: 0 2px 8px rgba(52,29,52,0.04);
+    box-shadow: none;
     padding: 1.5rem 1rem;
     border-radius: 0;
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
 }
 
 @media (max-width: 1100px) {
@@ -391,15 +405,17 @@ footer {
     border-radius: 0 !important;
 }
 
-.door-main {
+.door-main, .gallery-wall-main {
     flex: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: none;
+    background: #fff;
     position: relative;
     z-index: 1;
+    margin-left: 140px;
 }
 
 .gallery-door {
@@ -438,18 +454,6 @@ footer {
 .gallery-door:hover .door-window, .gallery-door:focus .door-window {
     border-color: #341D34;
     box-shadow: 0 8px 40px rgba(52,29,52,0.18);
-}
-
-.gallery-wall-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-    background: #fff;
-    padding: 2rem 0 6rem 0;
-    margin-left: 140px;
 }
 
 .gallery-wall-header {
@@ -597,14 +601,29 @@ footer {
     margin-bottom: 0.2rem;
 }
 
-.pixel-main, .door-main, .gallery-wall-main {
-    position: relative;
-    background-color: #fff;
-    /* Subtle repeating hallway pattern using SVG */
-    background-image: url('data:image/svg+xml;utf8,<svg width="120" height="240" viewBox="0 0 120 240" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="240" fill="white"/><rect x="10" y="0" width="100" height="240" rx="30" fill="none" stroke="%23cccccc" stroke-width="2"/><rect x="30" y="0" width="60" height="240" rx="20" fill="none" stroke="%23e0e0e0" stroke-width="1.5"/><rect x="50" y="0" width="20" height="240" rx="10" fill="none" stroke="%23f0f0f0" stroke-width="1"/></svg>');
-    background-repeat: repeat;
-    background-size: 120px 240px;
-    background-position: center;
+.about-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    background: #fff;
+    padding: 2rem 0 6rem 0;
+    margin-left: 140px;
+    box-sizing: border-box;
+}
+
+.about-info, .about-project {
+    margin-bottom: 2.5rem;
+    background: #E7FF6E;
+    border: 2px solid #6986E8;
+    box-shadow: none;
+    padding: 1.5rem 1rem;
+    border-radius: 0;
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
 }
 
 /* Soft light/shadow overlay for depth */
@@ -621,4 +640,97 @@ footer {
 .pixel-main > *, .door-main > *, .gallery-wall-main > * {
     position: relative;
     z-index: 1;
+}
+
+.citation-notes {
+    width: 100%;
+    max-width: 900px;
+    margin: 4rem auto 0 auto;
+    padding: 0 2rem;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.citation-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-family: 'Fira Mono', monospace, serif;
+    font-size: 1rem;
+    color: #341D34;
+    background: none;
+    border-left: 2px solid #6986E8;
+    padding: 1.2rem 1rem 1.2rem 1.5rem;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.citation-number {
+    font-size: 0.95rem;
+    color: #6986E8;
+    min-width: 2.2rem;
+    text-align: right;
+    font-family: 'Fira Mono', monospace, serif;
+    opacity: 0.8;
+    margin-top: 0.1rem;
+}
+
+.citation-text {
+    font-size: 1rem;
+    font-family: 'Fira Mono', monospace, serif;
+    color: #341D34;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+}
+
+.back-btn {
+    font-family: 'Fira Mono', monospace;
+    font-size: 0.95rem;
+    color: #341D34;
+    background: #E7FF6E;
+    border: 2px solid #6986E8;
+    border-radius: 0;
+    width: 56px;
+    height: 28px;
+    min-width: 56px;
+    min-height: 28px;
+    max-width: 56px;
+    max-height: 28px;
+    text-align: center;
+    margin: 1.2rem 0 1.2rem 0;
+    display: block;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s, border 0.2s;
+    padding: 0;
+}
+
+.back-btn:hover, .back-btn:focus {
+    color: #fff;
+    background: #6986E8;
+    border: 2px solid #E7FF6E;
+}
+
+.edit-artwork-title {
+    width: 72px;
+    min-width: 72px;
+    max-width: 72px;
+    height: 32px;
+    min-height: 32px;
+    max-height: 32px;
+    font-size: 1rem;
+    padding: 0;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.artwork-title-container {
+    gap: 0.5rem;
+    display: flex;
+    align-items: center;
 } 
