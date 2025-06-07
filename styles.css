@@ -162,26 +162,20 @@ footer {
     box-shadow: 2px 0 12px 0 rgba(52,29,52,0.03);
 }
 
-.vertical-nav a, .new-artwork-btn, .edit-artwork-title, .arrow-btn, .upload-label {
-    text-decoration: none;
-    color: #341D34;
-    font-size: 1.2rem;
-    text-transform: lowercase;
-    letter-spacing: 0.03em;
-    font-family: 'Fira Mono', monospace;
-    transition: color 0.2s, background 0.2s, border 0.2s;
-    padding: 0.7em 0;
-    border-radius: 0;
-    background: #E7FF6E;
-    border: 2px solid #6986E8;
-    width: 120px;
-    min-width: 120px;
-    max-width: 120px;
-    text-align: center;
-    margin-bottom: 0;
-    display: block;
+.vertical-nav a, .new-artwork-btn, .edit-artwork-title, .arrow-btn, .upload-label, .back-btn {
+    width: 140px;
+    min-width: 140px;
+    max-width: 140px;
+    height: 56px;
+    min-height: 56px;
+    max-height: 56px;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    padding: 0;
     box-sizing: border-box;
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .vertical-nav a:hover, .new-artwork-btn:hover, .edit-artwork-title:hover, .arrow-btn:hover, .upload-label:hover,
@@ -680,6 +674,17 @@ footer {
     margin-top: 0.1rem;
 }
 
+.citation-title {
+    font-family: 'Fira Mono', monospace, serif;
+    font-size: 1rem;
+    color: #341D34;
+    font-weight: 600;
+    text-transform: lowercase;
+    margin-right: 0.7rem;
+    margin-left: 0.2rem;
+    letter-spacing: 0.01em;
+}
+
 .citation-text {
     font-size: 1rem;
     font-family: 'Fira Mono', monospace, serif;
@@ -733,4 +738,15 @@ footer {
     gap: 0.5rem;
     display: flex;
     align-items: center;
+}
+
+.gallery-wall-main {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 } 
