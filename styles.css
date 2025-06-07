@@ -729,31 +729,29 @@ footer {
 }
 
 .back-btn {
-    font-family: 'Fira Mono', monospace;
-    font-size: 0.95rem;
-    color: #341D34;
+    position: absolute;
+    top: 2.5vh;
+    left: 2vw;
+    z-index: 100;
+    display: inline-block;
+    padding: 0.5em 1.2em;
     background: #E7FF6E;
-    border: 2px solid #6986E8;
-    border-radius: 0;
-    width: 56px;
-    height: 28px;
-    min-width: 56px;
-    min-height: 28px;
-    max-width: 56px;
-    max-height: 28px;
-    text-align: center;
-    margin: 1.2rem 0 1.2rem 0;
-    display: block;
+    border: 3px solid #6986E8;
+    border-radius: 0.3em;
+    color: #341D34;
+    font-family: 'Fira Mono', monospace;
+    font-size: 2rem;
+    font-weight: 400;
+    text-decoration: none;
     box-sizing: border-box;
     cursor: pointer;
-    transition: color 0.2s, background 0.2s, border 0.2s;
-    padding: 0;
+    transition: border 0.2s, background 0.2s;
 }
 
 .back-btn:hover, .back-btn:focus {
-    color: #fff;
-    background: #6986E8;
-    border: 2px solid #E7FF6E;
+    border: 3px solid #341D34;
+    background: #fff;
+    color: #341D34;
 }
 
 .edit-artwork-title {
