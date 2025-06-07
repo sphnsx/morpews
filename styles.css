@@ -14,6 +14,8 @@ html, body {
     box-sizing: border-box;
     font-family: 'Fira Mono', monospace;
     color: #341D34;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 body {
@@ -146,6 +148,8 @@ footer {
     gap: 2rem;
     border-right: 2px solid #341D34;
     min-width: 80px;
+    height: 100vh;
+    box-sizing: border-box;
 }
 
 .vertical-nav a {
@@ -952,4 +956,202 @@ footer {
     align-items: flex-start;
     width: 100%;
     min-height: 100vh;
+}
+
+/* Entrance styles */
+.entrance {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+}
+
+.building-front {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #341D34;
+    box-sizing: border-box;
+}
+
+.gate {
+    width: 240px;
+    height: 360px;
+    position: relative;
+}
+
+.gate-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.gate-frame {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #341D34;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.gate-frame:hover {
+    background: #FFE5FF;
+}
+
+/* Floor plan styles */
+.floorplan {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+}
+
+.plan-container {
+    width: 80%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+    border: 2px solid #341D34;
+    box-sizing: border-box;
+}
+
+.room {
+    border: 2px solid #341D34;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.room:hover {
+    background: #FFE5FF;
+}
+
+.room-link {
+    font-family: 'Fira Mono', monospace;
+    font-size: 1.2rem;
+    color: #341D34;
+    text-decoration: none;
+    text-transform: lowercase;
+}
+
+.building-intro {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.building-intro h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #341D34;
+}
+
+.artwork-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.intro-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #fff;
+    border: 2px solid #6986E8;
+    color: #341D34;
+    text-decoration: none;
+    font-family: 'Fira Mono', monospace;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+}
+
+.intro-btn:hover, .intro-btn:focus {
+    background: #E7FF6E;
+    transform: translateY(-2px);
+}
+
+/* Compressed floor plan button (for artwork rooms) */
+.floorplan-btn {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 120px;
+    height: 40px;
+    border: 2px solid #341D34;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.floorplan-btn:hover {
+    background: #FFE5FF;
+}
+
+.floorplan-btn span {
+    font-family: 'Fira Mono', monospace;
+    font-size: 0.9rem;
+    color: #341D34;
+    text-transform: lowercase;
+}
+
+/* Artwork room styles */
+.artwork-room {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    position: relative;
+}
+
+.intro-btn {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    width: 120px;
+    height: 40px;
+    border: 2px solid #341D34;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.intro-btn:hover {
+    background: #FFE5FF;
+}
+
+.intro-btn span {
+    font-family: 'Fira Mono', monospace;
+    font-size: 0.9rem;
+    color: #341D34;
+    text-transform: lowercase;
+}
+
+.artwork-display {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #341D34;
+    box-sizing: border-box;
 } 
