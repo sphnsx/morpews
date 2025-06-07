@@ -1154,4 +1154,61 @@ footer {
     align-items: center;
     border: 2px solid #341D34;
     box-sizing: border-box;
+}
+
+/* Homepage full-screen image styles */
+.homepage-bg {
+    background: #000;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.homepage-image-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homepage-building-img {
+    max-width: 100vw;
+    max-height: 100vh;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.door-btn {
+    position: absolute;
+    left: 50%;
+    top: 62%;
+    transform: translate(-50%, -50%);
+    width: 8vw;
+    height: 18vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #E7FF6E;
+    border: 3px solid #6986E8;
+    border-radius: 0.4em;
+    color: #341D34;
+    font-family: 'Fira Mono', monospace;
+    font-size: 2.1vw;
+    font-weight: 400;
+    text-decoration: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: border 0.2s, background 0.2s;
+    z-index: 2;
+    padding: 0;
+}
+.door-btn:hover, .door-btn:focus {
+    border: 3px solid #341D34;
+    background: #fff;
+    color: #341D34;
 } 
