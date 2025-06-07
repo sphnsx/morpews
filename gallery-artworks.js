@@ -2,20 +2,28 @@
 // Render each artwork as a large white box with a thin black border, colour squares, and title
 
 const artworks = [
-    { title: 'artwork a', colours: ['#E7FF6E', '#6986E8', '#fff', '#341D34'] },
-    { title: 'artwork b', colours: ['#6986E8', '#E7FF6E', '#341D34'] },
-    { title: 'artwork c', colours: ['#341D34', '#fff', '#E7FF6E'] }
+    { title: 'artwork a', colours: ['#E7FF6E', '#6986E8', '#fff', '#341D34'], refraction: 'refraction note for artwork a' },
+    { title: 'artwork b', colours: ['#6986E8', '#E7FF6E', '#341D34'], refraction: 'refraction note for artwork b' },
+    { title: 'artwork c', colours: ['#341D34', '#fff', '#E7FF6E'], refraction: 'refraction note for artwork c' }
 ];
 
 const container = document.getElementById('artwork-boxes');
 container.style.display = 'flex';
+container.style.flexWrap = 'wrap';
 container.style.gap = '4rem';
 container.style.justifyContent = 'center';
-container.style.alignItems = 'center';
+container.style.alignItems = 'flex-start';
 container.style.width = '100%';
-container.style.height = '100vh';
+container.style.minHeight = '100vh';
 
-artworks.forEach((artwork) => {
+artworks.forEach((artwork, idx) => {
+    const wrapper = document.createElement('div');
+    wrapper.style.display = 'flex';
+    wrapper.style.flexDirection = 'column';
+    wrapper.style.alignItems = 'center';
+    wrapper.style.gap = '1.2rem';
+
+    // Artwork box (clickable)
     const box = document.createElement('div');
     box.className = 'artwork-box';
     box.style.background = '#fff';
@@ -28,6 +36,10 @@ artworks.forEach((artwork) => {
     box.style.justifyContent = 'center';
     box.style.boxSizing = 'border-box';
     box.style.margin = '0';
+    box.style.cursor = 'pointer';
+    box.onclick = () => {
+        window.location.href = `gallery-subpage.html?artwork=${idx}`;
+    };
 
     // Colour squares row
     const row = document.createElement('div');
@@ -55,5 +67,25 @@ artworks.forEach((artwork) => {
     title.style.marginTop = '0.2rem';
     box.appendChild(title);
 
-    container.appendChild(box);
+    // Citation button (clickable)
+    const citationBtn = document.createElement('button');
+    citationBtn.className = 'citation-btn';
+    citationBtn.textContent = `[${idx + 1}]`;
+    citationBtn.style.fontFamily = "'Fira Mono', monospace";
+    citationBtn.style.fontSize = '1.1rem';
+    citationBtn.style.color = '#6986E8';
+    citationBtn.style.background = '#fff';
+    citationBtn.style.border = '2px solid #6986E8';
+    citationBtn.style.borderRadius = '0';
+    citationBtn.style.width = '56px';
+    citationBtn.style.height = '36px';
+    citationBtn.style.cursor = 'pointer';
+    citationBtn.style.marginTop = '0.5rem';
+    citationBtn.onclick = () => {
+        window.location.href = `gallery-subpage.html?artwork=${idx}`;
+    };
+
+    wrapper.appendChild(box);
+    wrapper.appendChild(citationBtn);
+    container.appendChild(wrapper);
 }); 
