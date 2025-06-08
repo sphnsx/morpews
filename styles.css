@@ -1276,4 +1276,108 @@ footer {
     z-index: 1;
     text-align: center;
     max-width: 600px;
+}
+
+/* Floorplan page layout */
+.floorplan-page {
+    background: #eaeaea;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Fira Mono', monospace;
+}
+
+.floorplan-layout {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+}
+
+.floorplan-sidebar {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.5rem 1.5rem 0 2.5rem;
+    gap: 2.5rem;
+    background: none;
+}
+
+.sidebar-btn {
+    display: block;
+    font-family: 'Fira Mono', monospace;
+    font-size: 1.3rem;
+    font-weight: 400;
+    border-radius: 0.3em;
+    padding: 0.7em 2.5em 0.7em 1.5em;
+    margin-bottom: 0.5em;
+    text-decoration: none;
+    color: #fff;
+    background: #6986E8;
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
+    transition: background 0.2s, color 0.2s;
+}
+.sidebar-btn--active {
+    background: #6986E8;
+    color: #E7FF6E;
+    cursor: default;
+}
+.sidebar-btn--about {
+    background: #FBE6FB;
+    color: #341D34;
+}
+.sidebar-btn--about:hover, .sidebar-btn--about:focus {
+    background: #E7FF6E;
+    color: #341D34;
+}
+
+.floorplan-map-container {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.floorplan-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    display: block;
+    box-shadow: 0 0 0 4px #8882;
+    background: #fff;
+}
+
+.room-btn {
+    position: absolute;
+    font-family: 'Fira Mono', monospace;
+    font-size: 1.1rem;
+    background: #E7FF6E;
+    color: #341D34;
+    border-radius: 0.2em;
+    padding: 0.3em 1.2em;
+    text-decoration: none;
+    border: none;
+    box-shadow: 0 1px 4px #0001;
+    transition: background 0.2s, color 0.2s;
+    z-index: 2;
+}
+.room-btn:hover, .room-btn:focus {
+    background: #6986E8;
+    color: #fff;
+}
+
+/* Positioning for room buttons (adjust as needed for your floorplan image) */
+.room-btn--glassworks {
+    top: 7.5%;
+    left: 19.5%;
+}
+.room-btn--constellations {
+    top: 7.5%;
+    left: 67.5%;
 } 
