@@ -1425,4 +1425,20 @@ footer {
 .room-btn--constellations {
     top: 7.5%;
     left: 67.5%;
+}
+
+/* Remove border-radius from all buttons and labels */
+
+/* Sidebar, room, about, back, and enter buttons */
+.sidebar-btn,
+.sidebar-btn--active,
+.sidebar-btn--about,
+.room-btn,
+.back-btn,
+.enter-btn,
+.about-label,
+.about-label--me,
+.about-label--building,
+.about-box {
+    border-radius: 0 !important;
 } 
