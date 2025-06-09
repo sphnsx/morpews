@@ -1229,7 +1229,7 @@ footer {
 .door-btn {
     position: absolute;
     left: 50%;
-    top: 56.5%; /* Adjusted to position above the door as in screenshot 2 */
+    top: 56.5%;
     transform: translate(-50%, -50%);
     width: 180px;
     height: 60px;
@@ -1237,7 +1237,7 @@ footer {
     align-items: center;
     justify-content: center;
     background: #E7FF6E;
-    border: 3px solid #6986E8;
+    border: none;
     border-radius: 0;
     color: #341D34;
     font-family: 'Fira Mono', monospace;
@@ -1246,18 +1246,16 @@ footer {
     text-decoration: none;
     box-sizing: border-box;
     cursor: pointer;
-    transition: border 0.2s, background 0.2s;
+    transition: background 0.2s;
     z-index: 2;
     padding: 0;
+    outline: none;
 }
-.door-btn:active {
+.door-btn:hover, .door-btn:focus, .door-btn:active {
     background: #FFE5FF;
     color: #341D34;
-}
-.door-btn:hover, .door-btn:focus {
-    border: 3px solid #341D34;
-    background: #E7FF6E;
-    color: #341D34;
+    border: none;
+    outline: none;
 }
 
 /* Floorplan background and overlay styles */
