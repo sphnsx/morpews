@@ -6,10 +6,25 @@
     <title>Morpews Gallery</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="homepage-bg">
+<body class="homepage-white-bg">
     <div class="homepage-image-container">
         <img src="images/home-building.png" alt="Morpews Gallery Building" class="homepage-building-img">
-        <a href="floorplan.html" class="door-btn" aria-label="Enter Gallery">enter</a>
-        </div>
+        <a href="floorplan.html" class="door-btn" id="enter-btn" aria-label="Enter Gallery">enter</a>
+    </div>
+    <script>
+    // Change button color on click
+    document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('enter-btn');
+        btn.addEventListener('mousedown', function() {
+            btn.style.background = '#FFE5FF';
+        });
+        btn.addEventListener('mouseup', function() {
+            btn.style.background = '#E7FF6E';
+        });
+        btn.addEventListener('mouseleave', function() {
+            btn.style.background = '#E7FF6E';
+        });
+    });
+    </script>
 </body>
 </html> 

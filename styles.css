@@ -1199,9 +1199,9 @@ footer {
     box-sizing: border-box;
 }
 
-/* Homepage full-screen image styles */
-.homepage-bg {
-    background: #000;
+/* Homepage white background */
+.homepage-white-bg {
+    background: #fff;
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -1229,19 +1229,19 @@ footer {
 .door-btn {
     position: absolute;
     left: 50%;
-    top: 62%;
+    top: 56.5%; /* Adjusted to position above the door as in screenshot 2 */
     transform: translate(-50%, -50%);
-    width: 8vw;
-    height: 18vh;
+    width: 180px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #E7FF6E;
     border: 3px solid #6986E8;
-    border-radius: 0.4em;
+    border-radius: 0;
     color: #341D34;
     font-family: 'Fira Mono', monospace;
-    font-size: 2.1vw;
+    font-size: 2rem;
     font-weight: 400;
     text-decoration: none;
     box-sizing: border-box;
@@ -1250,9 +1250,13 @@ footer {
     z-index: 2;
     padding: 0;
 }
+.door-btn:active {
+    background: #FFE5FF;
+    color: #341D34;
+}
 .door-btn:hover, .door-btn:focus {
     border: 3px solid #341D34;
-    background: #fff;
+    background: #E7FF6E;
     color: #341D34;
 }
 
