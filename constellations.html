@@ -6,28 +6,45 @@
     <title>Constellations - Morpews Gallery</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="constellations-page">
     <a href="floorplan.html" class="back-btn">back</a>
-    <div class="layout">
-        <nav class="vertical-nav">
-            <a href="index.html">home</a>
-            <a href="floorplan.html">map</a>
-            <a href="about.html">about</a>
-        </nav>
-        <main class="gallery-wall-main">
-            <div class="artwork-room">
-                <div class="artwork-display">
-                    <div id="constellations-container"></div>
-                </div>
-                <div class="literature">
-                    <h2>constellations</h2>
-                    <p class="literature-placeholder">
-                        Across the adjacent wall hangs a widening galaxy of numbered frames. Visitors wander the field, touching canvases in the order their curiosity suggests — 7, 3, 19, perhaps; a private orbit traced in silence. With the press of Compose, the AI reads that path as a star-map and releases a short prose-poem whose images arise in the very order of the clicks. Each story is a new alignment of fixed lights, brief and unrepeatable. The wall resets, ready for another traveller, another sky.
-                    </p>
+    <div class="constellations-layout">
+        <div class="constellations-bg-right">
+            <img src="images/constellations-bg.png" alt="Constellations Wall" class="constellations-bg-img">
+        </div>
+        <div class="constellations-bottom">
+            <button class="constellations-btn" id="btn-constellations">constellations</button>
+            <div class="constellations-popup" id="popup-constellations">
+                <div class="constellations-popup-title">constellations</div>
+                <div class="constellations-popup-content">
+                    Across the adjacent wall hangs a widening galaxy of numbered frames. Visitors wander the field, touching canvases in the order their curiosity suggests — 7, 3, 19, perhaps; a private orbit traced in silence. With the press of Compose, the AI reads that path as a star-map and releases a short prose-poem whose images arise in the very order of the clicks. Each story is a new alignment of fixed lights, brief and unrepeatable. The wall resets, ready for another traveller, another sky.
                 </div>
             </div>
-        </main>
+            <button class="constellations-btn" id="btn-alignments">alignments</button>
+            <div class="constellations-popup" id="popup-alignments">
+                <div class="constellations-popup-title">alignments</div>
+                <div class="constellations-popup-content">
+                    
+                </div>
+            </div>
+        </div>
     </div>
-    <script src="constellations.js"></script>
+    <script>
+    // Toggle popups
+    document.addEventListener('DOMContentLoaded', function() {
+        const btnConstellations = document.getElementById('btn-constellations');
+        const popupConstellations = document.getElementById('popup-constellations');
+        const btnAlignments = document.getElementById('btn-alignments');
+        const popupAlignments = document.getElementById('popup-alignments');
+        popupConstellations.style.display = 'none';
+        popupAlignments.style.display = 'none';
+        btnConstellations.addEventListener('click', function() {
+            popupConstellations.style.display = (popupConstellations.style.display === 'none') ? 'block' : 'none';
+        });
+        btnAlignments.addEventListener('click', function() {
+            popupAlignments.style.display = (popupAlignments.style.display === 'none') ? 'block' : 'none';
+        });
+    });
+    </script>
 </body>
 </html> 
