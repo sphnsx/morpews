@@ -1496,4 +1496,104 @@ footer {
     background: #fff;
     margin: 0;
     padding: 0;
+}
+
+/* Glassworks page layout and popups */
+.glassworks-page {
+    background: #fff;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Fira Mono', monospace;
+}
+.glassworks-layout {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.glassworks-left {
+    width: 40vw;
+    min-width: 320px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.5rem 0 0 2.5rem;
+    gap: 2.5rem;
+}
+.glassworks-btn {
+    background: #E7FF6E;
+    color: #341D34;
+    font-family: 'Fira Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 400;
+    border: none;
+    border-radius: 0;
+    padding: 0.3em 1.2em 0.3em 0.2em;
+    margin-bottom: 1.2rem;
+    cursor: pointer;
+    text-transform: lowercase;
+    box-shadow: none;
+    transition: background 0.2s, color 0.2s;
+    outline: none;
+    display: inline-block;
+}
+.glassworks-btn:hover, .glassworks-btn:focus {
+    background: #FFE5FF;
+    color: #341D34;
+}
+.glassworks-popup {
+    display: none;
+    border: 2px solid #6986E8;
+    background: #fff;
+    margin-bottom: 1.5rem;
+    margin-left: 0.2rem;
+    min-width: 320px;
+    max-width: 420px;
+    padding: 0.7em 1.2em 1.2em 1.2em;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+}
+.glassworks-popup-title {
+    font-size: 1.4rem;
+    font-family: 'Fira Mono', monospace;
+    font-weight: 400;
+    background: #E7FF6E;
+    color: #341D34;
+    padding: 0.1em 0.7em 0.1em 0.1em;
+    margin-bottom: 0.7em;
+    display: inline-block;
+    border-radius: 0;
+    text-transform: lowercase;
+}
+.glassworks-popup-content {
+    font-size: 1.05rem;
+    color: #341D34;
+    line-height: 1.6;
+    font-family: 'Fira Mono', monospace;
+    margin-top: 0.2em;
+}
+.glassworks-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+.glassworks-bg-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    display: block;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
 } 

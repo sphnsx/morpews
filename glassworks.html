@@ -6,28 +6,44 @@
     <title>Glassworks - Morpews Gallery</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <a href="floorplan.html" class="back-btn">back</a>
-    <div class="layout">
-        <nav class="vertical-nav">
-            <a href="index.html">home</a>
-            <a href="floorplan.html">map</a>
-            <a href="about.html">about</a>
-        </nav>
-        <main class="gallery-wall-main">
-            <div class="artwork-room">
-                <div class="artwork-display">
-                    <div id="glassworks-container"></div>
-                </div>
-                <div class="literature">
-                    <h2>glassworks</h2>
-                    <p class="literature-placeholder">
-                        A lone frame occupies the wall like a quiet reservoir of shifting light. Each time a photograph enters, the machine pares it to a square shard and lets it slide among its neighbours; colours drift, seams realign, the surface breathes. When the movement settles, a brief poem appears beside the glass — cool, spare, almost whispered — then waits for the next disturbance. The work is an aquarium of memory: fragments swirl inside strict borders, never still yet never escaping, a discipline of perpetual recomposition.
-                    </p>
+<body class="glassworks-page">
+    <div class="glassworks-layout">
+        <div class="glassworks-left">
+            <button class="glassworks-btn" id="btn-glassworks">glassworks</button>
+            <div class="glassworks-popup" id="popup-glassworks">
+                <div class="glassworks-popup-title">glassworks</div>
+                <div class="glassworks-popup-content">
+                    A lone frame occupies the wall like a quiet reservoir of shifting light. Each time a photograph enters, the machine pares it to a square shard and lets it slide among its neighbours; colours drift, seams realign, the surface breathes. When the movement settles, a brief poem appears beside the glass — cool, spare, almost whispered — then waits for the next disturbance. The work is an aquarium of memory: fragments swirl inside strict borders, never still yet never escaping, a discipline of perpetual recomposition.
                 </div>
             </div>
-        </main>
+            <button class="glassworks-btn" id="btn-refractions">refractions</button>
+            <div class="glassworks-popup" id="popup-refractions">
+                <div class="glassworks-popup-title">refractions</div>
+                <div class="glassworks-popup-content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
+                </div>
+            </div>
+        </div>
+        <div class="glassworks-right">
+            <img src="images/glassworks-bg.png" alt="Glassworks Collage" class="glassworks-bg-img">
+        </div>
     </div>
-    <script src="glassworks.js"></script>
+    <script>
+    // Toggle popups
+    document.addEventListener('DOMContentLoaded', function() {
+        const btnGlassworks = document.getElementById('btn-glassworks');
+        const popupGlassworks = document.getElementById('popup-glassworks');
+        const btnRefractions = document.getElementById('btn-refractions');
+        const popupRefractions = document.getElementById('popup-refractions');
+        popupGlassworks.style.display = 'none';
+        popupRefractions.style.display = 'none';
+        btnGlassworks.addEventListener('click', function() {
+            popupGlassworks.style.display = (popupGlassworks.style.display === 'none') ? 'block' : 'none';
+        });
+        btnRefractions.addEventListener('click', function() {
+            popupRefractions.style.display = (popupRefractions.style.display === 'none') ? 'block' : 'none';
+        });
+    });
+    </script>
 </body>
 </html> 
