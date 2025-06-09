@@ -1441,4 +1441,57 @@ footer {
 .about-label--building,
 .about-box {
     border-radius: 0 !important;
+}
+
+/* Map (floorplan) page layout - white background, no margins */
+.map-page {
+    background: #fff;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Fira Mono', monospace;
+}
+
+.floorplan-layout {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.floorplan-sidebar {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.5rem 1.5rem 0 2.5rem;
+    gap: 2.5rem;
+    background: none;
+    margin: 0;
+}
+
+.floorplan-map-container {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+}
+
+.floorplan-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    display: block;
+    box-shadow: none;
+    background: #fff;
+    margin: 0;
+    padding: 0;
 } 
