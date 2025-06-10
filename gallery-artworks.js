@@ -41,6 +41,15 @@ artworks.forEach((artwork, idx) => {
         window.location.href = `gallery-subpage.html?artwork=${idx}`;
     };
 
+    // Add order rectangle (hidden by default, shows on hover)
+    const orderRect = document.createElement('div');
+    orderRect.className = 'artwork-canvas-order-rect';
+    const orderNum = document.createElement('div');
+    orderNum.className = 'artwork-canvas-order-number';
+    orderNum.textContent = idx + 1;
+    orderRect.appendChild(orderNum);
+    box.appendChild(orderRect);
+
     // Colour squares row
     const row = document.createElement('div');
     row.style.display = 'flex';
