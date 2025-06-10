@@ -9,7 +9,7 @@
 <body class="map-page">
     <div class="floorplan-layout">
         <div class="floorplan-sidebar">
-            <div class="sidebar-btn sidebar-btn--active">map</div>
+            <div class="sidebar-btn sidebar-btn--active">plan</div>
             <a href="about.html" class="sidebar-btn sidebar-btn--about">about</a>
         </div>
         <div class="floorplan-map-container">
@@ -18,5 +18,27 @@
             <a href="constellations.html" class="room-btn room-btn--constellations">constellation room</a>
         </div>
     </div>
+    <button id="btn-plan" class="plan-btn">plan</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnPlan = document.getElementById('btn-plan');
+            const popupPlan = document.getElementById('popup-plan');
+            popupPlan.style.display = 'none';
+            btnPlan.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const isOpen = popupPlan.style.display === 'block';
+                popupPlan.style.display = isOpen ? 'none' : 'block';
+            });
+            document.addEventListener('click', function(e) {
+                if (
+                    popupPlan.style.display === 'block' &&
+                    !popupPlan.contains(e.target) &&
+                    e.target !== btnPlan
+                ) {
+                    popupPlan.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html> 
