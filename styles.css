@@ -860,7 +860,7 @@ footer {
 }
 
 .about-page {
-    background: #fff;
+    /* background: #fff; */
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -1494,7 +1494,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 5.5rem 0 0 2.5rem;
+    padding: 7.5rem 0 0 2.5rem;
     gap: 2.5rem;
 }
 .glassworks-btn {
@@ -1525,11 +1525,15 @@ footer {
     margin-bottom: 1.5rem;
     margin-left: 0.2rem;
     min-width: 320px;
-    max-width: 420px;
-    padding: 0.7em 1.2em 1.2em 1.2em;
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    padding: 1.2em 2em 1.2em 2em;
     box-sizing: border-box;
     position: relative;
     z-index: 10;
+    overflow: auto;
 }
 .glassworks-popup-title {
     font-size: 1.4rem;
@@ -1594,20 +1598,20 @@ footer {
     top: 0;
     width: 100vw;
     height: 100vh;
-    object-fit: contain;
+    object-fit: cover;
     z-index: 1;
     pointer-events: none;
 }
 .constellations-bottom-bar {
     position: absolute;
     left: 0;
-    bottom: 2.5rem;
+    bottom: 3.5rem;
     width: 100vw;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
     gap: 1.5rem;
-    padding-left: 2.5rem;
+    padding-left: 3.5rem;
     z-index: 10;
 }
 .constellations-btn {
@@ -1625,6 +1629,7 @@ footer {
     transition: background 0.2s, color 0.2s;
     outline: none;
     display: inline-block;
+    margin-bottom: 0.7rem;
 }
 .constellations-btn:hover, .constellations-btn:focus {
     background: #FFE5FF;
@@ -1645,7 +1650,7 @@ footer {
     z-index: 20;
 }
 #popup-alignments {
-    left: 22rem;
+    left: 26rem;
 }
 .constellations-popup-title {
     font-size: 1.2rem;
@@ -1745,4 +1750,25 @@ footer {
 }
 #popup-about-building {
     left: 22rem;
+}
+
+.constellation-number-btn {
+    background: #E7FF6E;
+    color: #341D34;
+    font-family: 'Fira Mono', monospace;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 0;
+    padding: 0.2em 0.7em;
+    cursor: pointer;
+    text-transform: lowercase;
+    box-shadow: none;
+    transition: background 0.2s, color 0.2s;
+    outline: none;
+    display: block;
+    z-index: 2;
+}
+.constellation-number-btn:hover, .constellation-number-btn:focus {
+    background: #FFE5FF;
+    color: #341D34;
 } 

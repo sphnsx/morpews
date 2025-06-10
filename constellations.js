@@ -22,7 +22,8 @@ class Constellations {
             const frame = document.createElement('div');
             frame.className = 'constellation-frame';
             frame.dataset.number = i;
-            
+            frame.style.position = 'relative';
+
             // Style the frame
             frame.style.width = '120px';
             frame.style.height = '120px';
@@ -35,17 +36,46 @@ class Constellations {
             frame.style.color = '#341D34';
             frame.style.cursor = 'pointer';
             frame.style.transition = 'all 0.3s ease';
-            frame.style.position = 'relative';
             frame.style.background = '#fff';
 
-            // Add number
-            const number = document.createElement('span');
-            number.textContent = i;
-            frame.appendChild(number);
+            // Add number button (hidden by default)
+            const numberBtn = document.createElement('button');
+            numberBtn.textContent = `[${i}]`;
+            numberBtn.className = 'constellation-number-btn';
+            numberBtn.style.display = 'none';
+            numberBtn.style.position = 'absolute';
+            numberBtn.style.top = '50%';
+            numberBtn.style.left = '50%';
+            numberBtn.style.transform = 'translate(-50%, -50%)';
+            numberBtn.style.background = '#E7FF6E';
+            numberBtn.style.color = '#341D34';
+            numberBtn.style.fontFamily = "'Fira Mono', monospace";
+            numberBtn.style.fontSize = '1.2rem';
+            numberBtn.style.border = 'none';
+            numberBtn.style.padding = '0.2em 0.7em';
+            numberBtn.style.cursor = 'pointer';
+            numberBtn.style.textTransform = 'lowercase';
+            numberBtn.style.zIndex = '2';
+            numberBtn.style.borderRadius = '0';
+            numberBtn.style.boxShadow = 'none';
+            numberBtn.style.transition = 'background 0.2s, color 0.2s';
+            numberBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.toggleFrame(frame);
+            });
+            frame.appendChild(numberBtn);
 
-            // Add click handler
-            frame.addEventListener('click', () => this.toggleFrame(frame));
-            
+            // Show/hide number button on hover
+            frame.addEventListener('mouseenter', () => {
+                numberBtn.style.display = 'block';
+            });
+            frame.addEventListener('mouseleave', () => {
+                numberBtn.style.display = 'none';
+            });
+
+            // Add click handler for frame (optional: select on frame click)
+            // frame.addEventListener('click', () => this.toggleFrame(frame));
+
             this.container.appendChild(frame);
         }
     }
