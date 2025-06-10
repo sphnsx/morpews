@@ -734,13 +734,13 @@ footer {
     left: 2vw;
     z-index: 100;
     display: inline-block;
-    padding: 0.5em 1.2em;
-    background: #E7FF6E;
+    padding: 0.2em 0.7em;
+    background: transparent;
     border: 3px solid #6986E8;
     border-radius: 0.3em;
     color: #341D34;
     font-family: 'Fira Mono', monospace;
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: 400;
     text-decoration: none;
     box-sizing: border-box;
@@ -1525,15 +1525,15 @@ footer {
     margin-bottom: 1.5rem;
     margin-left: 0.2rem;
     min-width: 320px;
-    max-width: 90vw;
-    max-height: 90vh;
+    max-width: 700px;
+    max-height: 80vh;
     width: auto;
     height: auto;
     padding: 1.2em 2em 1.2em 2em;
     box-sizing: border-box;
     position: relative;
     z-index: 10;
-    overflow: auto;
+    overflow-y: auto;
 }
 .glassworks-popup-title {
     font-size: 1.4rem;
@@ -1771,4 +1771,8 @@ footer {
 .constellation-number-btn:hover, .constellation-number-btn:focus {
     background: #FFE5FF;
     color: #341D34;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, a, button, .artwork-title, .about-popup-content, .glassworks-popup-content, .constellations-popup-content, .about-label, .about-btn, .constellation-number-btn, .glassworks-btn, .constellations-btn, .back-btn {
+    color: #341D34 !important;
 } 

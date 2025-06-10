@@ -33,11 +33,40 @@
         const popupAboutBuilding = document.getElementById('popup-about-building');
         popupAboutMe.style.display = 'none';
         popupAboutBuilding.style.display = 'none';
-        btnAboutMe.addEventListener('click', function() {
-            popupAboutMe.style.display = (popupAboutMe.style.display === 'none') ? 'block' : 'none';
+        let topZ = 30, bottomZ = 20;
+        btnAboutMe.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isOpen = popupAboutMe.style.display === 'block';
+            popupAboutMe.style.display = isOpen ? 'none' : 'block';
+            if (!isOpen) {
+                popupAboutMe.style.zIndex = topZ;
+                popupAboutBuilding.style.zIndex = bottomZ;
+            }
         });
-        btnAboutBuilding.addEventListener('click', function() {
-            popupAboutBuilding.style.display = (popupAboutBuilding.style.display === 'none') ? 'block' : 'none';
+        btnAboutBuilding.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isOpen = popupAboutBuilding.style.display === 'block';
+            popupAboutBuilding.style.display = isOpen ? 'none' : 'block';
+            if (!isOpen) {
+                popupAboutBuilding.style.zIndex = topZ;
+                popupAboutMe.style.zIndex = bottomZ;
+            }
+        });
+        document.addEventListener('click', function(e) {
+            if (
+                popupAboutMe.style.display === 'block' &&
+                !popupAboutMe.contains(e.target) &&
+                e.target !== btnAboutMe
+            ) {
+                popupAboutMe.style.display = 'none';
+            }
+            if (
+                popupAboutBuilding.style.display === 'block' &&
+                !popupAboutBuilding.contains(e.target) &&
+                e.target !== btnAboutBuilding
+            ) {
+                popupAboutBuilding.style.display = 'none';
+            }
         });
     });
     </script>

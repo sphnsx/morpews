@@ -38,11 +38,40 @@
         const popupRefractions = document.getElementById('popup-refractions');
         popupGlassworks.style.display = 'none';
         popupRefractions.style.display = 'none';
-        btnGlassworks.addEventListener('click', function() {
-            popupGlassworks.style.display = (popupGlassworks.style.display === 'none') ? 'block' : 'none';
+        let topZ = 30, bottomZ = 20;
+        btnGlassworks.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isOpen = popupGlassworks.style.display === 'block';
+            popupGlassworks.style.display = isOpen ? 'none' : 'block';
+            if (!isOpen) {
+                popupGlassworks.style.zIndex = topZ;
+                popupRefractions.style.zIndex = bottomZ;
+            }
         });
-        btnRefractions.addEventListener('click', function() {
-            popupRefractions.style.display = (popupRefractions.style.display === 'none') ? 'block' : 'none';
+        btnRefractions.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isOpen = popupRefractions.style.display === 'block';
+            popupRefractions.style.display = isOpen ? 'none' : 'block';
+            if (!isOpen) {
+                popupRefractions.style.zIndex = topZ;
+                popupGlassworks.style.zIndex = bottomZ;
+            }
+        });
+        document.addEventListener('click', function(e) {
+            if (
+                popupGlassworks.style.display === 'block' &&
+                !popupGlassworks.contains(e.target) &&
+                e.target !== btnGlassworks
+            ) {
+                popupGlassworks.style.display = 'none';
+            }
+            if (
+                popupRefractions.style.display === 'block' &&
+                !popupRefractions.contains(e.target) &&
+                e.target !== btnRefractions
+            ) {
+                popupRefractions.style.display = 'none';
+            }
         });
     });
     </script>
