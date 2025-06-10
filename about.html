@@ -6,22 +6,40 @@
     <title>about - morpews</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="about-page">
+<body class="about-page about-bg">
     <a href="floorplan.html" class="back-btn">back</a>
-    <div class="about-columns">
-        <div class="about-col">
-            <div class="about-label about-label--me">about me</div>
-            <div class="about-box">
+    <div class="about-bottom-bar">
+        <button class="about-btn" id="btn-about-me">about me</button>
+        <div class="about-popup" id="popup-about-me">
+            <div class="about-popup-title">about me</div>
+            <div class="about-popup-content">
                 Silvia (b 1999) is a London-based graduate with a BA in Fashion Design Womenswear from Central Saint Martins. She delights in immersing herself in unreal spaces filled with hypothetical thoughts, exploring the ability to leap between different concepts. She treats visual presentation with the same subtlety she applies to language, creating pieces that resonate on multiple levels and transcend conventional boundaries.<br><br>
                 For Silvia, fashion is but one avenue of creation. She endeavours to delve not only into the fashion domain but also into interdisciplinary fields such as philosophy; her next step is fine art photography, promising to further expand her creative horizons.
             </div>
         </div>
-        <div class="about-col">
-            <div class="about-label about-label--building">about this building</div>
-            <div class="about-box">
-                Morpews Gallery is a digital building made of rooms rather than pages, each screen a wall that listens. Inside, images are cropped, scattered, rearranged; words emerge, dissolve, return. The architecture is quiet — pale stone, dark lines — but alive with invisible labour: algorithms tend the pictures like nocturnal caretakers, and every visitor's gesture rewrites the air. Here, containment and dispersion live side by side: a single, restless mosaic in Glassworks; an ever-expanding firmament in Constellations. Together they form a house where fragments seek their reflections and stories slip, understated, through the seams.
+        <button class="about-btn" id="btn-about-building">about this building</button>
+        <div class="about-popup" id="popup-about-building">
+            <div class="about-popup-title">about this building</div>
+            <div class="about-popup-content">
+                Morpews gallery is a digital plan rendered as architecture. Each page is treated as a room; each screen edge is treated as a wall. Navigation is therefore spatial rather than hierarchical: you move from façade to floor plan, then from floor plan to rooms, and you return by retracing your steps. No visual element is decorative. The façade simply marks entry, the map locates work, and the rooms stage the experiments described above. Everything else — the short texts, the modals — exists to keep you aware that you are walking inside a set of rules, not browsing a list of documents.
             </div>
         </div>
     </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const btnAboutMe = document.getElementById('btn-about-me');
+        const popupAboutMe = document.getElementById('popup-about-me');
+        const btnAboutBuilding = document.getElementById('btn-about-building');
+        const popupAboutBuilding = document.getElementById('popup-about-building');
+        popupAboutMe.style.display = 'none';
+        popupAboutBuilding.style.display = 'none';
+        btnAboutMe.addEventListener('click', function() {
+            popupAboutMe.style.display = (popupAboutMe.style.display === 'none') ? 'block' : 'none';
+        });
+        btnAboutBuilding.addEventListener('click', function() {
+            popupAboutBuilding.style.display = (popupAboutBuilding.style.display === 'none') ? 'block' : 'none';
+        });
+    });
+    </script>
 </body>
 </html> 
