@@ -73,6 +73,15 @@ class Constellations {
                 numberBtn.style.display = 'none';
             });
 
+            // Add order rectangle (hidden by default, shows on hover)
+            const orderRect = document.createElement('div');
+            orderRect.className = 'constellation-canvas-order-rect';
+            const orderNum = document.createElement('div');
+            orderNum.className = 'constellation-canvas-order-number';
+            orderNum.textContent = i;
+            orderRect.appendChild(orderNum);
+            frame.appendChild(orderRect);
+
             // Add click handler for frame (optional: select on frame click)
             // frame.addEventListener('click', () => this.toggleFrame(frame));
 

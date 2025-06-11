@@ -1802,4 +1802,40 @@ footer {
 
 body, h1, h2, h3, h4, h5, h6, p, a, button, .artwork-title, .about-popup-content, .glassworks-popup-content, .constellations-popup-content, .about-label, .about-btn, .constellation-number-btn, .glassworks-btn, .constellations-btn, .back-btn {
     color: #341D34 !important;
+}
+
+.constellation-frame {
+    position: relative;
+}
+
+.constellation-canvas-order-rect {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 28px;
+    background: #f6ff8f;
+    border-radius: 0.2em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    pointer-events: none;
+    display: flex;
+}
+
+.constellation-frame:hover .constellation-canvas-order-rect {
+    display: flex;
+}
+
+.constellation-canvas-order-number {
+    color: #341D34;
+    font-family: 'Fira Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+    line-height: 28px;
+    pointer-events: none;
 } 
