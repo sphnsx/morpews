@@ -1546,21 +1546,19 @@ footer {
     color: #341D34;
 }
 .glassworks-popup {
-    display: none;
-    border: 2px solid #6986E8;
-    background: #fff;
-    margin-bottom: 1.5rem;
-    margin-left: 0.2rem;
+    position: absolute;
+    left: 2.5rem;
+    top: 7.5rem;
     min-width: 320px;
-    max-width: 700px;
-    max-height: none;
-    width: auto;
-    height: auto;
+    max-width: 600px;
+    width: 38vw;
+    background: #fff;
+    z-index: 30;
+    box-shadow: 0 4px 32px rgba(52,29,52,0.10);
+    border: 2px solid #6986E8;
     padding: 1.2em 2em 1.2em 2em;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 10;
-    overflow-y: visible;
+    margin: 0;
+    overflow: visible;
 }
 .glassworks-popup-title {
     font-size: 1.4rem;
@@ -1838,4 +1836,14 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, .artwork-title, .about-popup-content
     width: 100%;
     line-height: 28px;
     pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .glassworks-popup {
+    left: 1rem;
+    top: 5rem;
+    width: 90vw;
+    max-width: 98vw;
+    padding: 1em 0.5em;
+  }
 } 
