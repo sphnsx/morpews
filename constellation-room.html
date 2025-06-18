@@ -23,10 +23,11 @@
   pointer-events: none;
   z-index: 10;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  display: none;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   text-align: center;
+  border: 2px solid red;
 }
 
 .frame-button {
@@ -218,6 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Position the numberDiv above the group (top of yellow block)
       numberDiv.style.left = (screenPt.x - numberDiv.offsetWidth / 2) + 'px';
       numberDiv.style.top = (screenPt.y - 36) + 'px'; // 36px above the top
+      console.log('Hover:', {id, num, bbox, screenPt});
     });
     
     g.addEventListener('mousemove', function(e) {
