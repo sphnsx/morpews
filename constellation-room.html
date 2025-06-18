@@ -286,5 +286,145 @@ document.addEventListener('DOMContentLoaded', function() {
     // Return a random story (or you could make it deterministic based on the sequence)
     return stories[Math.floor(Math.random() * stories.length)];
   }
+
+  // ConstellationGallery component functionality
+  function initializeConstellationGallery() {
+    // Create hidden file input
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'image/*';
+    fileInput.style.display = 'none';
+    document.body.appendChild(fileInput);
+
+    let uploadModeEnabled = false;
+    let foreignObjects = [];
+
+    // Function to create upload buttons
+    function createUploadButtons() {
+      // Clear existing buttons
+      foreignObjects.forEach(fo => fo.remove());
+      foreignObjects = [];
+
+      // Select every <g> whose id starts with 'frame-'
+      const frameGroups = Array.from(svg.querySelectorAll('g[id^="frame-"]'));
+      
+      frameGroups.forEach(g => {
+        const {x, y, width: w, height: h} = g.getBBox();
+        
+        // Create foreignObject for the button
+        const foreignObject = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
+        foreignObject.setAttribute('x', x);
+        foreignObject.setAttribute('y', y);
+        foreignObject.setAttribute('width', w);
+        foreignObject.setAttribute('height', h);
+        
+        // Create button
+        const button = document.createElement('button');
+        button.textContent = getFrameNumber(g.id);
+        button.style.width = '100%';
+        button.style.height = '100%';
+        button.style.border = '2px solid #341D34';
+        button.style.background = 'rgba(246, 255, 143, 0.8)';
+        button.style.color = '#341D34';
+        button.style.fontFamily = "'Fira Mono', monospace";
+        button.style.fontSize = '1rem';
+        button.style.fontWeight = '700';
+        button.style.cursor = 'pointer';
+        button.style.borderRadius = '0.2em';
+        button.style.transition = 'all 0.2s ease';
+        
+        button.addEventListener('mouseenter', function() {
+          button.style.background = 'rgba(246, 255, 143, 1)';
+          button.style.transform = 'scale(1.02)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+          button.style.background = 'rgba(246, 255, 143, 0.8)';
+          button.style.transform = 'scale(1)';
+        });
+        
+        button.addEventListener('click', function() {
+          // Store reference to this frame group for file handling
+          fileInput.dataset.frameId = g.id;
+          fileInput.dataset.frameX = x;
+          fileInput.dataset.frameY = y;
+          fileInput.dataset.frameW = w;
+          fileInput.dataset.frameH = h;
+          fileInput.click();
+        });
+        
+        foreignObject.appendChild(button);
+        svg.appendChild(foreignObject);
+        foreignObjects.push(foreignObject);
+      });
+    }
+
+    // Function to remove upload buttons
+    function removeUploadButtons() {
+      foreignObjects.forEach(fo => fo.remove());
+      foreignObjects = [];
+    }
+
+    // Handle file selection
+    fileInput.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      
+      const frameId = fileInput.dataset.frameId;
+      const x = parseFloat(fileInput.dataset.frameX);
+      const y = parseFloat(fileInput.dataset.frameY);
+      const w = parseFloat(fileInput.dataset.frameW);
+      const h = parseFloat(fileInput.dataset.frameH);
+      
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        // Create image element
+        const image = document.createElementNS('http://www.w3.org/2000/svg', 'image');
+        image.setAttribute('x', x);
+        image.setAttribute('y', y);
+        image.setAttribute('width', w);
+        image.setAttribute('height', h);
+        image.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+        image.setAttribute('href', e.target.result);
+        image.setAttribute('data-frame-id', frameId);
+        
+        // Insert image after the frame group
+        const frameGroup = document.getElementById(frameId);
+        frameGroup.parentNode.insertBefore(image, frameGroup.nextSibling);
+        
+        // Hide the button after image is inserted
+        const foreignObject = foreignObjects.find(fo => 
+          fo.querySelector('button').textContent === getFrameNumber(frameId)
+        );
+        if (foreignObject) {
+          const button = foreignObject.querySelector('button');
+          button.style.display = 'none';
+        }
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // Keyboard shortcut to toggle upload mode (Ctrl+Shift+U)
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey && e.shiftKey && e.key === 'U') {
+        e.preventDefault();
+        uploadModeEnabled = !uploadModeEnabled;
+        
+        if (uploadModeEnabled) {
+          createUploadButtons();
+          console.log('Upload mode enabled - frame buttons visible');
+        } else {
+          removeUploadButtons();
+          console.log('Upload mode disabled - frame buttons hidden');
+        }
+      }
+    });
+
+    // By default, upload mode is disabled (no buttons visible)
+    console.log('Constellation room loaded. Press Ctrl+Shift+U to enable upload mode.');
+  }
+
+  // Initialize the ConstellationGallery component
+  initializeConstellationGallery();
 });
 </script>
