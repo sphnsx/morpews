@@ -9,3 +9,282 @@
 </svg>
 <!-- ==================== -->
 <!-- End SVG                                                   -->
+
+<style>
+.frame-hover-number {
+  position: absolute;
+  color: #341D34;
+  background: #f6ff8f;
+  border-radius: 0.2em;
+  font-family: 'Fira Mono', monospace;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  pointer-events: none;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.frame-button {
+  position: absolute;
+  color: #341D34;
+  background: #f6ff8f;
+  border-radius: 0.2em;
+  font-family: 'Fira Mono', monospace;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.frame-button.active {
+  background: #ffb6c1;
+}
+
+.compose-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #341D34;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 0.5em;
+  font-family: 'Fira Mono', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 1000;
+  display: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.2s ease;
+}
+
+.compose-button:hover {
+  background: #4a2a4a;
+  transform: translateY(-2px);
+}
+
+.alignment-section {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  min-width: 200px;
+  max-width: 400px;
+  background: white;
+  border: 2px solid #341D34;
+  border-radius: 0.5em;
+  padding: 20px;
+  font-family: 'Fira Mono', monospace;
+  font-size: 0.9rem;
+  z-index: 1000;
+  display: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.alignment-section h3 {
+  margin: 0 0 15px 0;
+  color: #341D34;
+  font-size: 1.1rem;
+}
+
+.alignment-section p {
+  margin: 0;
+  line-height: 1.5;
+  color: #341D34;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const svg = document.querySelector('svg');
+  if (!svg) return;
+
+  // Create containers
+  const numberDiv = document.createElement('div');
+  numberDiv.className = 'frame-hover-number';
+  document.body.appendChild(numberDiv);
+
+  const composeButton = document.createElement('button');
+  composeButton.className = 'compose-button';
+  composeButton.textContent = 'compose';
+  document.body.appendChild(composeButton);
+
+  const alignmentSection = document.createElement('div');
+  alignmentSection.className = 'alignment-section';
+  alignmentSection.innerHTML = '<h3>Alignment</h3><p id="alignment-text"></p>';
+  document.body.appendChild(alignmentSection);
+
+  // State management
+  const activeButtons = new Map(); // frameId -> button element
+  const clickedOrder = []; // Array to track click order
+
+  // Helper to get the number from id (e.g., 'frame-01' -> '01')
+  function getFrameNumber(id) {
+    const match = id.match(/^frame-(\d+)$/);
+    return match ? match[1] : '';
+  }
+
+  // Helper to create a persistent button
+  function createButton(frameId, x, y) {
+    const button = document.createElement('div');
+    button.className = 'frame-button';
+    button.textContent = getFrameNumber(frameId);
+    button.style.left = x + 'px';
+    button.style.top = y + 'px';
+    button.dataset.frameId = frameId;
+    
+    button.addEventListener('click', function() {
+      toggleButton(frameId);
+    });
+    
+    return button;
+  }
+
+  // Toggle button state
+  function toggleButton(frameId) {
+    const button = activeButtons.get(frameId);
+    if (button) {
+      // Remove button
+      button.remove();
+      activeButtons.delete(frameId);
+      // Remove from clicked order
+      const index = clickedOrder.indexOf(frameId);
+      if (index > -1) {
+        clickedOrder.splice(index, 1);
+      }
+    } else {
+      // Add button
+      const num = getFrameNumber(frameId);
+      if (!num) return;
+      
+      // Get position from the frame group
+      const frameGroup = document.getElementById(frameId);
+      if (!frameGroup) return;
+      
+      const bbox = frameGroup.getBBox();
+      const pt = svg.createSVGPoint();
+      pt.x = bbox.x + bbox.width / 2;
+      pt.y = bbox.y;
+      const ctm = svg.getScreenCTM();
+      if (!ctm) return;
+      const screenPt = pt.matrixTransform(ctm);
+      
+      const button = createButton(frameId, screenPt.x - 25, screenPt.y - 36);
+      document.body.appendChild(button);
+      activeButtons.set(frameId, button);
+      
+      // Add to clicked order
+      clickedOrder.push(frameId);
+    }
+    
+    // Show/hide compose button based on whether any buttons are active
+    composeButton.style.display = activeButtons.size > 0 ? 'block' : 'none';
+  }
+
+  // Find all <g> with id starting with 'frame-'
+  const frameGroups = Array.from(svg.querySelectorAll('g[id^="frame-"]'));
+
+  frameGroups.forEach(g => {
+    g.addEventListener('mouseenter', function(e) {
+      const id = g.id;
+      const num = getFrameNumber(id);
+      if (!num || activeButtons.has(id)) return; // Don't show hover if button is active
+      
+      numberDiv.textContent = num;
+      numberDiv.style.display = 'flex';
+
+      // Get the bounding box of the group in SVG coordinates
+      const bbox = g.getBBox();
+      // Convert SVG coordinates to screen coordinates
+      const pt = svg.createSVGPoint();
+      pt.x = bbox.x + bbox.width / 2;
+      pt.y = bbox.y;
+      const ctm = svg.getScreenCTM();
+      if (!ctm) return;
+      const screenPt = pt.matrixTransform(ctm);
+      // Position the numberDiv above the group (top of yellow block)
+      numberDiv.style.left = (screenPt.x - numberDiv.offsetWidth / 2) + 'px';
+      numberDiv.style.top = (screenPt.y - 36) + 'px'; // 36px above the top
+    });
+    
+    g.addEventListener('mousemove', function(e) {
+      const id = g.id;
+      if (activeButtons.has(id)) return; // Don't update hover if button is active
+      
+      // Update position in case of movement
+      const bbox = g.getBBox();
+      const pt = svg.createSVGPoint();
+      pt.x = bbox.x + bbox.width / 2;
+      pt.y = bbox.y;
+      const ctm = svg.getScreenCTM();
+      if (!ctm) return;
+      const screenPt = pt.matrixTransform(ctm);
+      numberDiv.style.left = (screenPt.x - numberDiv.offsetWidth / 2) + 'px';
+      numberDiv.style.top = (screenPt.y - 36) + 'px';
+    });
+    
+    g.addEventListener('mouseleave', function() {
+      numberDiv.style.display = 'none';
+    });
+    
+    g.addEventListener('click', function(e) {
+      e.preventDefault();
+      toggleButton(g.id);
+    });
+  });
+
+  // Compose button click handler
+  composeButton.addEventListener('click', function() {
+    if (clickedOrder.length === 0) return;
+    
+    // Generate story based on click order
+    const story = generateStory(clickedOrder);
+    
+    // Display in alignment section
+    const alignmentText = document.getElementById('alignment-text');
+    alignmentText.textContent = story;
+    alignmentSection.style.display = 'block';
+  });
+
+  // Generate AI story based on click order
+  function generateStory(clickOrder) {
+    const numbers = clickOrder.map(id => getFrameNumber(id));
+    const sequence = numbers.join(' → ');
+    
+    // Stories designed to be 150-200 words
+    const stories = [
+      `Following the constellation sequence ${sequence}, a cosmic dance unfolds where each frame reveals a fragment of an ancient celestial story. The alignment suggests a journey through time and space, where every number represents a chapter in the universe's grand narrative. As the stars align in this precise order, they whisper secrets of creation itself.`,
+      
+      `The pattern ${sequence} creates a mystical pathway through the stars. Each number acts as a beacon, guiding the way through cosmic currents and stellar winds. This alignment speaks of destiny written in the heavens, where every choice leads to another constellation, another story waiting to be told.`,
+      
+      `In the sequence ${sequence}, we find the rhythm of creation itself. Each frame pulses with cosmic energy, building a symphony of light and shadow that tells the story of how the universe came to be. The numbers form a celestial code, unlocking memories of the first starlight.`,
+      
+      `The constellation alignment ${sequence} reveals a hidden message from the cosmos. Each number is a key that unlocks deeper understanding of the celestial mechanics that govern our reality. Through this pattern, we glimpse the mathematical poetry of existence.`,
+      
+      `Through the pattern ${sequence}, we trace the footsteps of ancient stargazers who mapped the heavens. Each frame preserves their wisdom, passed down through generations of sky-watchers who understood that every constellation tells a story of human connection to the infinite.`,
+      
+      `The sequence ${sequence} forms a celestial bridge between past and future. Each number represents a moment in cosmic time, a point where the universe paused to create something beautiful. This alignment is a reminder that we are all stardust, connected by invisible threads of light.`,
+      
+      `As the constellations align in order ${sequence}, they reveal the hidden geometry of the cosmos. Each frame is a window into another dimension, where time flows differently and space bends to the will of ancient forces. This pattern is a map to understanding our place in the universe.`,
+      
+      `The constellation sequence ${sequence} creates a sacred geometry that has guided travelers for millennia. Each number represents a waypoint in the great cosmic journey, a moment of revelation where the mysteries of the universe become slightly less mysterious.`
+    ];
+    
+    // Return a random story (or you could make it deterministic based on the sequence)
+    return stories[Math.floor(Math.random() * stories.length)];
+  }
+});
+</script>
