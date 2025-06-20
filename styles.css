@@ -1544,7 +1544,7 @@ footer {
 }
 .glassworks-popup {
     position: absolute;
-    left: 8em;
+    left: 18em;
     top: 5rem;
     min-width: 320px;
     max-width: 600px;
@@ -1553,7 +1553,7 @@ footer {
     z-index: 30;
     box-shadow: 0 4px 32px rgba(52,29,52,0.10);
     border: 2px solid #6986E8;
-    padding: 1.2em 2em 1.2em 2em;
+    padding: 0;
     margin: 0;
     overflow: visible;
 }
