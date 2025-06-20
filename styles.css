@@ -1575,7 +1575,6 @@ footer {
     line-height: 1.6;
     font-family: 'Fira Mono', monospace;
     margin-top: 0.2em;
-    padding-left: 0.7em;
 }
 .glassworks-right {
     flex: 1;
@@ -1585,8 +1584,6 @@ footer {
     height: 100vh;
     padding: 0;
     margin: 0;
-    background: #FFE5FF;
-    color: #341D34;
 }
 .glassworks-bg-img {
     max-width: 90vw;
