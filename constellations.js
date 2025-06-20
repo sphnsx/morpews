@@ -15,6 +15,6 @@ class Constellations {
 // Initialize the artwork when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     new Constellations();
-});
+}); 
 
 // Removed all code for hover overlays and number buttons. No overlays or numbers will be shown. 
