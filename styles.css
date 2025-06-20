@@ -1515,35 +1515,32 @@ footer {
     justify-content: flex-start;
 }
 .glassworks-left {
-    width: 40vw;
-    min-width: 320px;
-    max-width: 500px;
+    width: 45%;
+    padding-right: 2rem;
+    padding-left: 2rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 7.5rem 0 0 2.5rem;
-    gap: 2.5rem;
+    padding-top: 5rem;
 }
 .glassworks-btn {
     background: #E7FF6E;
+    border: 1.5px solid #6986E8;
     color: #341D34;
+    padding: 0.4em 0.8em;
+    text-decoration: none;
     font-family: 'Fira Mono', monospace;
     font-size: 1.5rem;
-    font-weight: 400;
-    border: none;
-    border-radius: 0;
-    padding: 0.3em 1.2em 0.3em 0.2em;
-    margin-bottom: 1.2rem;
-    cursor: pointer;
     text-transform: lowercase;
-    box-shadow: none;
-    transition: background 0.2s, color 0.2s;
-    outline: none;
+    cursor: pointer;
     display: inline-block;
+    margin-bottom: 1rem;
+    border-radius: 0;
+    transition: background-color 0.2s, color 0.2s;
+    margin-right: 1rem;
 }
 .glassworks-btn:hover, .glassworks-btn:focus {
-    background: #FFE5FF;
-    color: #341D34;
+    background: #fff;
 }
 .glassworks-popup {
     position: absolute;
@@ -1840,10 +1837,17 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, .artwork-title, .about-popup-content
 
 @media (max-width: 900px) {
   .glassworks-popup {
-    left: 1rem;
-    top: 5rem;
-    width: 90vw;
-    max-width: 98vw;
-    padding: 1em 0.5em;
+    width: 90%;
+    left: 5%;
+    top: auto;
+    bottom: 2rem;
   }
+}
+
+/* Style adjustments for button consistency */
+.glassworks-btn {
+    font-size: 1.5rem;
+    padding: 0.4em 0.8em;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
 } 
