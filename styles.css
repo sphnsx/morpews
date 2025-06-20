@@ -1540,7 +1540,7 @@ footer {
     margin-right: 1rem;
 }
 .glassworks-btn:hover, .glassworks-btn:focus {
-    background: #fff;
+    background: #FFE5FF;
 }
 .glassworks-popup {
     position: absolute;
@@ -1553,7 +1553,7 @@ footer {
     z-index: 30;
     box-shadow: 0 4px 32px rgba(52,29,52,0.10);
     border: 2px solid #6986E8;
-    padding: 1.2em 2em;
+    padding: 1.2em;
     margin: 0;
     overflow: visible;
 }
@@ -1565,7 +1565,7 @@ footer {
     color: #341D34;
     padding: 0.1em 0.7em 0.1em 0.1em;
     margin-bottom: 0.7em;
-    display: inline-block;
+    display: block;
     border-radius: 0;
     text-transform: lowercase;
 }
@@ -1682,7 +1682,7 @@ footer {
     color: #341D34;
     padding: 0.1em 0.7em 0.1em 0.1em;
     margin-bottom: 0.7em;
-    display: inline-block;
+    display: block;
     border-radius: 0;
     text-transform: lowercase;
 }
