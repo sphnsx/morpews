@@ -1845,9 +1845,8 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, .artwork-title, .about-popup-content
 }
 
 /* Style adjustments for button consistency */
-.glassworks-btn {
-    font-size: 1.5rem;
-    padding: 0.4em 0.8em;
-    margin-bottom: 1rem;
-    margin-right: 1rem;
+.glassworks-btn, .constellations-btn {
+    border: none;
+    margin-bottom: 1.5rem;
+    padding: 0.3em 1.2em 0.3em 0.2em;
 } 
