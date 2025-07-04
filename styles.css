@@ -1423,12 +1423,12 @@ footer {
 
 /* Positioning for room buttons (adjust as needed for your floorplan image) */
 .room-btn--glassworks {
-    top: 7.5%;
-    left: 19.5%;
+    top: 23.5%;
+    left: 28.5%;
 }
 .room-btn--constellations {
-    top: 7.5%;
-    left: 67.5%;
+    top: 13.5%;
+    left: 44.5%;
 }
 
 /* Remove border-radius from all buttons and labels */
