@@ -1850,4 +1850,10 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, .artwork-title, .about-popup-content
     border: none;
     margin-bottom: 1.5rem;
     padding: 0.3em 1.2em 0.3em 0.2em;
+}
+
+.glassworks-popup-content p,
+.constellations-popup-content p {
+    margin-left: 0;
+    padding-left: 0;
 } 
