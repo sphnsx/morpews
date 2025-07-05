@@ -1514,13 +1514,14 @@ footer {
     padding-top: 5rem;
 }
 .glassworks-btn {
+    font-size: 1.3rem;
     background: #E7FF6E;
     border: 1.5px solid #6986E8;
     color: #341D34;
     padding: 0.4em 0.8em;
     text-decoration: none;
     font-family: 'Fira Mono', monospace;
-    font-size: 1.5rem;
+    font-weight: 400;
     text-transform: lowercase;
     cursor: pointer;
     display: inline-block;
@@ -1628,10 +1629,10 @@ footer {
     z-index: 10;
 }
 .constellations-btn {
+    font-size: 1.3rem;
     background: #E7FF6E;
     color: #341D34;
     font-family: 'Fira Mono', monospace;
-    font-size: 1.3rem;
     font-weight: 400;
     border: none;
     border-radius: 0;
@@ -1687,10 +1688,10 @@ footer {
 }
 
 .about-btn {
+    font-size: 1.3rem;
     background: #E7FF6E;
     color: #341D34;
     font-family: 'Fira Mono', monospace;
-    font-size: 1.3rem;
     font-weight: 400;
     border: none;
     border-radius: 0;
@@ -1768,10 +1769,11 @@ footer {
 }
 
 .constellation-number-btn {
+    font-size: 1.2rem;
     background: #E7FF6E;
     color: #341D34;
     font-family: 'Fira Mono', monospace;
-    font-size: 1.2rem;
+    font-weight: 400;
     border: none;
     border-radius: 0;
     padding: 0.2em 0.7em;
