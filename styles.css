@@ -1392,43 +1392,33 @@ footer {
     height: 100vh;
 }
 
-.floorplan-img {
+.floorplan-img-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
     max-width: 90vw;
-    max-height: 90vh;
-    width: auto;
+    height: auto;
+}
+
+.floorplan-img {
+    width: 100%;
     height: auto;
     display: block;
-    box-shadow: 0 0 0 4px #8882;
-    background: #fff;
 }
 
 .room-btn {
     position: absolute;
-    font-family: 'Fira Mono', monospace;
-    font-size: 1.1rem;
-    background: #E7FF6E;
-    color: #341D34;
-    border-radius: 0.2em;
-    padding: 0.3em 1.2em;
-    text-decoration: none;
-    border: none;
-    box-shadow: 0 1px 4px #0001;
-    transition: background 0.2s, color 0.2s;
     z-index: 2;
-}
-.room-btn:hover, .room-btn:focus {
-    background: #6986E8;
-    color: #fff;
 }
 
 /* Positioning for room buttons (adjust as needed for your floorplan image) */
 .room-btn--glassworks {
-    top: 36%;
-    left: 22.5%;
+    top: 18.5%;
+    left: 10.5%;
 }
 .room-btn--constellations {
-    top: 17.5%;
-    left: 56.5%;
+    top: 7.5%;
+    left: 54.5%;
 }
 
 /* Remove border-radius from all buttons and labels */
@@ -1570,6 +1560,7 @@ footer {
     text-transform: lowercase;
 }
 .glassworks-popup-content {
+    padding-left: 0;
     font-size: 1.05rem;
     color: #341D34;
     line-height: 1.6;
@@ -1687,12 +1678,12 @@ footer {
     text-transform: lowercase;
 }
 .constellations-popup-content {
+    padding-left: 0;
     font-size: 1.05rem;
     color: #341D34;
     line-height: 1.6;
     font-family: 'Fira Mono', monospace;
     margin-top: 0.2em;
-    padding-left: 0.7em;
 }
 
 .about-btn {
@@ -1744,6 +1735,7 @@ footer {
     text-transform: lowercase;
 }
 .about-popup-content {
+    padding-left: 0;
     font-size: 1.05rem;
     color: #341D34;
     line-height: 1.6;
@@ -1852,8 +1844,6 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, .artwork-title, .about-popup-content
     padding: 0.3em 1.2em 0.3em 0.2em;
 }
 
-.glassworks-popup-content p,
-.constellations-popup-content p {
+.glassworks-paragraph-section {
     margin-left: 0;
-    padding-left: 0;
 } 
