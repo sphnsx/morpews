@@ -10,4 +10,4 @@ a minimal website for showcasing visual artwork in a re-constructed and re-narra
 
 ## development
 
-simply open `index.html` in a web browser to view the site locally. 
+simply open `index.html` in a web browser to view the site locally. # Test connection
