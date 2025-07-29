@@ -1409,6 +1409,23 @@ footer {
 .room-btn {
     position: absolute;
     z-index: 2;
+    display: block;
+    font-family: 'Fira Mono', monospace;
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding: 0.3em 2.5em 0.3em 1.5em;
+    text-decoration: none;
+    color: #fff;
+    background: #6986E8;
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
+    transition: background 0.2s, color 0.2s;
+    border-radius: 0;
+}
+.room-btn:hover, .room-btn:focus {
+    background: #E7FF6E;
+    color: #341D34;
 }
 
 /* Positioning for room buttons (adjust as needed for your floorplan image) */
